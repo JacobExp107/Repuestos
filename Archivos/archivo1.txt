@@ -1,0 +1,11 @@
+queso-5
+tomates-6
+yogurt-2
+papas-6
+carne-10
+pollo-5
+leche-5
+huevo-11
+aguacate-10
+-0
+agua con gas-5

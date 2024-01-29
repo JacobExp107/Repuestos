@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de peso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .column {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px; /* Tamaño de fuente más grande */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; background-color: #007BFF; color: #fff; padding: 20px 0;">Promedio de Pesos</h1>
+    <div class="container" id="inputs"></div>
+    <div style="text-align: center; padding: 20px;">
+        <button onclick="calcularPromedios()">Calcular Promedios</button>
+    </div>
+    <div id="resultados" style="padding: 20px;"></div>
+    <script>
+        // Crea los campos de entrada para cada P
+        const inputsDiv = document.getElementById('inputs');
+        for (let i = 1; i <= 11; i++) {
+            const columnDiv = document.createElement('div');
+            columnDiv.className = 'column';
+            const label = document.createElement('label');
+            label.textContent = `P${i}: `;
+            columnDiv.appendChild(label);
+            for (let j = 0; j < 10; j++) {
+                const input = document.createElement('input');
+                input.id = `p${i}_${j}`;
+                columnDiv.appendChild(input);
+            }
+            // Agrega un botón para calcular el promedio de cada P
+            const button = document.createElement('button');
+            button.textContent = `Calcular Promedio P${i}`;
+            button.onclick = function() { calcularPromedio(i); };
+            columnDiv.appendChild(button);
+            inputsDiv.appendChild(columnDiv);
+        }
+
+        function calcularPromedio(i) {
+            let sum = 0;
+            let count = 0;
+            for (let j = 0; j < 10; j++) {
+                const valor = parseFloat(document.getElementById(`p${i}_${j}`).value);
+                if (!isNaN(valor)) {
+                    sum += valor;
+                    count++;
+                }
+            }
+            if (count > 0) {
+                const avg = sum / count;
+                const p = document.createElement('p');
+                p.textContent = `Promedio P${i}: ${avg}`;
+                document.getElementById('resultados').appendChild(p);
+            }
+        }
+
+        function calcularPromedios() {
+            let sumTotal = 0;
+            let countTotal = 0;
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = '';
+
+            // Calcula el promedio para cada P
+            for (let i = 1; i <= 11; i++) {
+                let sum = 0;
+                let count = 0;
+                for (let j = 0; j < 10; j++) {
+                    const valor = parseFloat(document.getElementById(`p${i}_${j}`).value);
+                    if (!isNaN(valor)) {
+                        sum += valor;
+                        count++;
+                    }
+                }
+                if (count > 0) {
+                    const avg = sum / count;
+                    sumTotal += sum;
+                    countTotal += count;
+                    const p = document.createElement('p');
+                    p.textContent = `Promedio P${i}: ${avg}`;
+                    resultadosDiv.appendChild(p);
+                }
+            }
+
+            // Calcula e imprime el promedio total
+            if (countTotal > 0) {
+                const pTotal = document.createElement('p');
+                pTotal.textContent = `Promedio Total: ${sumTotal / countTotal}`;
+                resultadosDiv.appendChild(pTotal);
+            }
+        }
+    </script>
+</body>
+</html>
