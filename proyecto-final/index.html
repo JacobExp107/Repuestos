@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tienda de Repuestos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tienda de Repuestos</h1>
+        
+        <div>
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" placeholder="Nombre del producto">
+            
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" placeholder="Precio del producto">
+            
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" placeholder="Cantidad del producto">
+
+            <button onclick="agregarProducto()">Agregar Producto</button>
+        </div>
+        
+        <div>
+            <label for="buscar">Buscar Producto:</label>
+            <input type="text" id="buscar" placeholder="Buscar producto">
+            
+            <button onclick="buscarProducto()">Buscar</button>
+        </div>
+
+       
+        <div id="buscar-resultados"></div>
+
+        <div>
+            <button onclick="mostrarInventario()">Mostrar Inventario</button>
+        </div>
+
+        <div id="inventario">
+           
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;                           /* Establece el estilo de todo el documento */
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;                                /* Sirve para centra */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;   /*Sirve para que ocupar todo el ancho disponible con un margen*/
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#buscar-resultados {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#inventario p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+button.editar {
+    background-color: #2196F3;
+    margin-left: 10px;
+}
